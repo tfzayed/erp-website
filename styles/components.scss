@@ -1,0 +1,16 @@
+// section style
+.section {
+  @apply py-24 xl:py-28;
+  &-sm {
+    @apply py-16 xl:py-20;
+  }
+}
+
+// container
+.container {
+  @apply mx-auto px-4;
+}
+
+.expand_border {
+  @apply relative rounded border-dashed border p-2 border-muted-foreground ;
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Dashboard",
+    "icon": "PanelsTopLeft",
+    "url": "/dashboard",
+    "admin": true,
+    "user": true
+  },
+  {
+    "name": "Employees",
+    "icon": "User",
+    "url": "/users",
+    "admin": true,
+    "user": false
+  },
+  {
+    "name": "Profile",
+    "icon": "User",
+    "url": "/users",
+    "admin": false,
+    "user": true
+  },
+  {
+    "name": "Tools",
+    "icon": "Wrench",
+    "url": "/tools",
+    "admin": true,
+    "user": false
+  },
+  {
+    "name": "Courses",
+    "icon": "Book",
+    "url": "/courses",
+    "admin": true,
+    "user": false
+  },
+  {
+    "name": "Profiles",
+    "icon": "Briefcase",
+    "url": "/profiles",
+    "admin": true,
+    "user": false
+  },
+  {
+    "name": "Assets",
+    "icon": "ShoppingBag",
+    "url": "/assets",
+    "admin": true,
+    "user": false
+  },
+  {
+    "name": "Calendar",
+    "icon": "Calendar",
+    "url": "/calendar",
+    "admin": true,
+    "user": true
+  }
+]
