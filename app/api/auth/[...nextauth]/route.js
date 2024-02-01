@@ -57,12 +57,14 @@ export const authOptions = {
 
       const sessionData = {
         ...session,
-        admin: Admins.map((data) => data.email).includes(session.user.email)
-          ? true
-          : false,
+        admin: Admins.map((data) => data.email).includes(session.user.email),
       };
 
-      return { sessionData, token };
+      token.isAdmin = Admins.map((data) => data.email).includes(
+        session.user.email
+      );
+
+      return { token, sessionData };
     },
   },
 
