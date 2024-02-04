@@ -8,7 +8,7 @@ export default withAuth(
 
     const { pathname } = req.nextUrl;
     const admin = token?.isAdmin;
-    const adminRoute = ["/courses", "/assets", "/tools"];
+    const adminRoute = ["/courses", "/assets", "/profiles", "/tools"];
     if (!admin && adminRoute.includes(pathname)) {
       return NextResponse.redirect(new URL("/404", req.url));
     }

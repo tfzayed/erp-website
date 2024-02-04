@@ -17,7 +17,7 @@ const CustomToolbar = (props) => {
 
   return (
     <div className="flex md:flex-col lg:flex-row justify-between items-center mb-5">
-      <h3>{props.label}</h3>
+      <h3 className="max-lg:mb-4">{props.label}</h3>
       <div className="flex items-center border rounded-md p-1">
         <button onClick={goToBack}>
           <ChevronLeft />
