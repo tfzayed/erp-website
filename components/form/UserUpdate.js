@@ -136,7 +136,6 @@ const UserUpdate = ({ user, admin }) => {
       banks: user.banks,
 
       contacts: user.contacts,
-      logs: user.logs,
       note: user.note,
     });
   }, [user.length]);
@@ -173,7 +172,6 @@ const UserUpdate = ({ user, admin }) => {
       banks: updateUser.banks,
 
       contacts: updateUser.contacts,
-      logs: updateUser.logs,
       note: updateUser.note,
     });
   };
@@ -243,29 +241,6 @@ const UserUpdate = ({ user, admin }) => {
       setUpdateUser({
         ...updateUser,
         contacts: updateUser.contacts.filter((ac) => ac.name !== id),
-      });
-    }
-  };
-
-  // logs
-  const addLog = () => {
-    setUpdateUser({
-      ...updateUser,
-      logs: [
-        ...updateUser.logs,
-        {
-          id: uuid4(),
-          log: "",
-          date: Date,
-        },
-      ],
-    });
-  };
-  const deleteLog = (id) => {
-    if (updateUser?.logs.map((ac) => ac.log).includes(id)) {
-      setUpdateUser({
-        ...updateUser,
-        logs: updateUser.logs.filter((ac) => ac.log !== id),
       });
     }
   };
@@ -1078,78 +1053,6 @@ const UserUpdate = ({ user, admin }) => {
               </Button>
             </div>
 
-            {/* log */}
-            <div className="bg-light p-1 rounded-md">
-              {updateUser?.logs?.map((a, i) => (
-                <div key={i} className="expand_border grid gap-2 mb-3 p-4">
-                  {admin && (
-                    <X
-                      onClick={() => deleteLog(a.log)}
-                      size={16}
-                      className="text-red-500 absolute right-1 top-1 cursor-pointer"
-                    />
-                  )}
-                  <div className="grid grid-cols-4 items-center">
-                    <label htmlFor="log" className="col-span-4">
-                      Log <span className="text-red-500">*</span>
-                    </label>
-                    <Input
-                      required
-                      readOnly={!admin && true}
-                      id="log"
-                      placeholder="log"
-                      value={a.log ? a.log : ""}
-                      className="col-span-4"
-                      onChange={(e) =>
-                        setUpdateUser({
-                          ...updateUser,
-                          logs: updateUser.logs.map((el) => {
-                            return {
-                              ...el,
-                              log: a.id === el.id ? e.target.value : el.log,
-                            };
-                          }),
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="grid grid-cols-4 items-center">
-                    <label htmlFor="date" className="col-span-4">
-                      Date <span className="text-red-500">*</span>
-                    </label>
-                    <Input
-                      required
-                      readOnly={!admin && true}
-                      id="date"
-                      type="date"
-                      placeholder="date"
-                      value={a.date ? dateInput(a.date) : ""}
-                      className="col-span-4"
-                      onChange={(e) =>
-                        setUpdateUser({
-                          ...updateUser,
-                          logs: updateUser.logs.map((el) => {
-                            return {
-                              ...el,
-                              date: a.id === el.id ? e.target.value : el.date,
-                            };
-                          }),
-                        })
-                      }
-                    />
-                  </div>
-                </div>
-              ))}
-              {admin && (
-                <Button
-                  type="button"
-                  onClick={addLog}
-                  className="w-full expand_border grid gap-4 bg-background text-text-color"
-                >
-                  Add Log
-                </Button>
-              )}
-            </div>
             {admin && (
               <div className="grid grid-cols-4 items-center">
                 <label htmlFor="note" className="col-span-4">
